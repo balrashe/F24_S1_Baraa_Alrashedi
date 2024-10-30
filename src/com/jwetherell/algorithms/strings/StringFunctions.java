@@ -12,21 +12,30 @@ public class StringFunctions {
 
     private static final char SPACE = ' ';
 
-    public static final String reverseWithStringConcat(String string) {
-        String output = new String();
-        for (int i = (string.length() - 1); i >= 0; i--) {
-            output += (string.charAt(i));
+    public static final String reverseWithStringConcat(String input) {
+        if (input == null || input.isEmpty()) {
+            return ""; // Return empty string for null or empty input
+        }
+        
+        String output = "";
+        for (int i = input.length() - 1; i >= 0; i--) {
+            output += input.charAt(i);
         }
         return output;
     }
+    
 
-    public static final String reverseWithStringBuilder(String string) {
-        final StringBuilder builder = new StringBuilder();
-        for (int i = (string.length() - 1); i >= 0; i--) {
-            builder.append(string.charAt(i));
+    public static final String reverseWithStringBuilder(String input) {
+        if (input == null || input.isEmpty()) {
+            return ""; // Return empty string for null or empty input
         }
-        return builder.toString();
-    }
+        
+        StringBuilder output = new StringBuilder();
+        for (int i = input.length() - 1; i >= 0; i--) {
+            output.append(input.charAt(i));
+        }
+        return output.toString();
+    }    
 
     public static final String reverseWithStringBuilderBuiltinMethod(String string) {
         final StringBuilder builder = new StringBuilder(string);
